@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E15FD87A2EAB9B7E00B3A26D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15FD8792EAB9B7E00B3A26D /* Constant.swift */; };
 		E1F3CB152EAB8F1700E4927F /* Devote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1F3CB0F2EAB8F1700E4927F /* Devote.xcdatamodeld */; };
 		E1F3CB162EAB8F1700E4927F /* DevoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3CB102EAB8F1700E4927F /* DevoteApp.swift */; };
 		E1F3CB172EAB8F1700E4927F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3CB112EAB8F1700E4927F /* Persistence.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E15FD8792EAB9B7E00B3A26D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E1F3CAEF2EAB8E7000E4927F /* Devote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F3CB0D2EAB8F1700E4927F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1F3CB102EAB8F1700E4927F /* DevoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevoteApp.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		E1F3CB222EAB8F7300E4927F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				E15FD8792EAB9B7E00B3A26D /* Constant.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			files = (
 				E1F3CB152EAB8F1700E4927F /* Devote.xcdatamodeld in Sources */,
 				E1F3CB162EAB8F1700E4927F /* DevoteApp.swift in Sources */,
+				E15FD87A2EAB9B7E00B3A26D /* Constant.swift in Sources */,
 				E1F3CB272EAB8FB700E4927F /* ContentView.swift in Sources */,
 				E1F3CB172EAB8F1700E4927F /* Persistence.swift in Sources */,
 			);
