@@ -22,4 +22,5 @@ var backgroundGradient: LinearGradient {
 }
 
 // MARK: - UX
+let haptics = UINotificationFeedbackGenerator()
 
