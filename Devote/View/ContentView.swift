@@ -65,6 +65,8 @@ struct ContentView: View {
                         Button {
                             // TOGGLE APPERANCE
                             isDarkMode.toggle()
+                            playSound(sound: "sound-tap", type: "mp3")
+                            haptics.notificationOccurred(.success)
                         } label: {
                             Image(systemName: isDarkMode ? "moon.circle.fill" : "moon.circle")
                                 .resizable()
@@ -83,6 +85,8 @@ struct ContentView: View {
                     
                     Button {
                         showNewTaskItem = true
+                        playSound(sound: "sound-ding", type: "mp3")
+                        haptics.notificationOccurred(.success)
                     } label: {
                         Image(systemName: "plus.circle")
                             .font(.system(size: 30, weight: .semibold, design: .rounded))
@@ -105,19 +109,20 @@ struct ContentView: View {
                     
                     List {
                         ForEach(items) { item in
-                            NavigationLink {
-                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                            } label: {
-                                VStack(alignment: .leading) {
-                                    Text(item.task ?? "")
-                                        .font(.headline)
-                                        .fontWeight(.bold)
-                                    
-                                    Text(item.timestamp!, formatter: itemFormatter)
-                                        .font(.footnote)
-                                        .foregroundColor(.gray)
-                                } //: LIST ITEM
-                            } //: LINK
+                            ListRowItemView(item: item)
+//                            NavigationLink {
+//                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+//                            } label: {
+//                                VStack(alignment: .leading) {
+//                                    Text(item.task ?? "")
+//                                        .font(.headline)
+//                                        .fontWeight(.bold)
+//                                    
+//                                    Text(item.timestamp!, formatter: itemFormatter)
+//                                        .font(.footnote)
+//                                        .foregroundColor(.gray)
+//                                } //: LIST ITEM
+//                            } //: LINK
                         }
                         .onDelete(perform: deleteItems)
                     } //: LIST
@@ -127,9 +132,14 @@ struct ContentView: View {
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
                 } //: VSTACK
+                .blur(radius: showNewTaskItem ? 8 : 0, opaque: false)
+                .transition(.move(edge: .bottom))
+                .animation(.easeOut(duration: 0.5))
                 // MARK: - NEW TASK ITEM
                 if showNewTaskItem {
-                    BlankView()
+                    BlankView(
+                        backgroundColor: isDarkMode ? Color.black : Color.gray,
+                        backgroundOpacity: isDarkMode ? 0.3 : 0.5)
                         .onTapGesture {
                             withAnimation {
                                 showNewTaskItem = false
@@ -141,7 +151,10 @@ struct ContentView: View {
             } //: ZSTACK
             .navigationBarTitle("Daily Tasks", displayMode: .large)
             .navigationBarHidden(true)
-            .background(BackgroundImageView())
+            .background(
+                BackgroundImageView()
+                    .blur(radius: showNewTaskItem ? 8 :0, opaque: false)
+            )
             .background(
                 backgroundGradient.ignoresSafeArea(.all)
             )
